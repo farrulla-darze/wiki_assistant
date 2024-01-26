@@ -1,0 +1,13 @@
+jupyter
+numpy
+pinecone-client
+pinecone-datasets
+openai
+langchain
+langchainhub
+python-dotenv
+pandas
+tiktoken
+chromadb
+bs4
+
