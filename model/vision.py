@@ -3,13 +3,18 @@ import base64
 import requests
 import json
 import re
+from dotenv import load_dotenv
+from pathlib import Path
 
-api_key = "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"
+dotenv_path = Path('.env')
+load_dotenv(dotenv_path=dotenv_path)
+openai_key = os.getenv('OPENAI_KEY')
+
 
 class Vision():
 
-    def __init__(self, api_key=api_key, image_paths=None):
-        self.key = api_key
+    def __init__(self, api_key=openai_key, image_paths=None):
+        self.api_key = api_key
         self.image_paths = image_paths 
 
     def encode_image(self, image_path):
@@ -56,7 +61,7 @@ class Vision():
 
                 headers = {
                     "Content-Type": "application/json",
-                    "Authorization": f"Bearer {api_key}"
+                    "Authorization": f"Bearer {self.api_key}"
                 }
 
                 payload = {
@@ -101,6 +106,6 @@ class Vision():
 
 v = Vision()
 imgs = ["data/doc_images/"+img for img in os.listdir("data/doc_images/")]
-imgs.sort()
-print(imgs)
-v.describe_images(imgs, save_gen=True)
+# imgs.sort()
+# print(imgs)
+print(v.describe_images(imgs))

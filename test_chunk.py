@@ -5,9 +5,12 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Qdrant
 import os
 import re
+from dotenv import load_dotenv
+from pathlib import Path
 
-api_key = "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"
-
+dotenv_path = Path('.env')
+load_dotenv(dotenv_path=dotenv_path)
+openai_key = os.getenv('OPENAI_KEY')
 
 def tryint(s):
     try:
@@ -31,7 +34,7 @@ def sort_nicely(l):
 
 class Database():
 
-    def __init__(self, api_key=api_key, descriptions="data/descriptions/", description_paths="data/descriptions_paths.txt"):
+    def __init__(self, api_key=openai_key, descriptions="data/descriptions/", description_paths="data/descriptions_paths.txt"):
         
         embeddings = OpenAIEmbeddings(openai_api_key=api_key)
         
