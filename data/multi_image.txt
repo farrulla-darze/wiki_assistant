@@ -1,0 +1,72 @@
+```json
+{
+  "description": "The image shows an analog multimeter on a brown surface with measurement probes connected to what appears to be a cylindrical component. The multimeter has a display reading 0.03, and it is in a setting with various mechanical and electrical parts around.",
+  "overlay": {
+    "DATA": "02012011",
+    "TIME": "145321",
+    "DEPTH": "600",
+    "X": "123456",
+    "234567": ""
+  }
+}
+```
+```json
+{
+  "description": "The image shows an individual's hands using a digital multimeter on a piece of machinery. The multimeter displays a reading and is connected to the machinery with two test leads. The setting appears industrial.",
+  "overlay": {
+    "DATA": "02012012",
+    "TIME": "145321",
+    "DEPTH": "500",
+    "X": "123456",
+    "Y": "234567"
+  }
+}
+```
+```json
+{
+  "description": "The image shows large industrial machinery with cylindrical and conical components in a warehouse environment. The machinery is metallic, likely stainless steel, and appears to be part of a manufacturing or processing facility. There is also some wooden pallets and other industrial items in the background hinting at an active industrial setting.",
+  "overlay": {
+    "DATA": "02012010",
+    "TIME": "145321",
+    "DEPTH": "600",
+    "X": "123456",
+    "Y": "234567"
+  }
+}
+```
+```json
+{
+  "description": "The image appears to be a distorted, abstract or underwater view with a central circular object that could be a lens or a reflection surrounded by radiating lines. The image itself is quite dark and unclear, which makes it difficult to determine the exact context or setting.",
+  "overlay": {
+    "DATA": "02012010",
+    "TIME": "1321",
+    "DEPTH": "100",
+    "X": "123456",
+    "Y": "234567"
+  }
+}
+```
+```json
+{
+  "description": "The image shows a set of metallic objects with hexagonal shapes, which appear to be metallic flanges or washers, lying on a flat surface.",
+  "overlay": {
+    "DATA": "02012010",
+    "TIME": "145321",
+    "DEPTH": "600",
+    "X": "123456",
+    "Y": "234"
+  }
+}
+```
+```json
+{
+  "description": "The image seems to be a blurred photo of a metallic object, possibly a bolt head or a mechanical part, with significant camera shake or motion blur affecting the clarity of the photo.",
+  "overlay": {
+    "DATA": "02012010",
+    "TIME": "145321",
+    "DEPTH": "600",
+    "X": "123456",
+    "Y": "234567"
+  }
+}
+```
