@@ -65,36 +65,35 @@ class Vision():
                 }
 
                 payload = {
-                "model": "gpt-4-vision-preview",
-                "messages": [ {
-                    "role": "user",
-                    "content": [
-                    {
-                    "type": "text",
-                    "text": prompt
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                        "url": f"data:image/jpeg;base64,{base64_image}"
-                        }
-                    }
-                    ]
-                }],
-                # ]
-                "max_tokens": 500
+                    "model": "gpt-4-vision-preview",
+                    "messages": [ {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": prompt
+                            },
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/jpeg;base64,{base64_image}"
+                                }
+                            }
+                        ]
+                    }],
+                    # ]
+                    "max_tokens": 500
                 }
 
                 response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
                 print(response.json())
                 model_output = response.json().get("choices")[0].get("message").get("content")
-                # print(model_output)
+
                 descriptions.append(model_output)
                 descriptions_dict.update({image_path: model_output})
             
         # Save descriptions to a file
         if (save_gen):
-            # TODO: Choose file name based on the prompt
             with open(save_path, "w") as f:
                 for description in descriptions:
                     f.write(description + "\n")
@@ -108,4 +107,4 @@ v = Vision()
 imgs = ["data/doc_images/"+img for img in os.listdir("data/doc_images/")]
 # imgs.sort()
 # print(imgs)
-print(v.describe_images(imgs))
+print(v.describe_images(imgs,prompt="You are analyzing an inspection report of a industrial setting of valve manufacturing. Please describe the image with details.", new_gen=True, save_gen=False))
