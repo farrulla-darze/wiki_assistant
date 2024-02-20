@@ -107,4 +107,8 @@ v = Vision()
 imgs = ["data/doc_images/"+img for img in os.listdir("data/doc_images/")]
 # imgs.sort()
 # print(imgs)
-print(v.describe_images(imgs,prompt="You are analyzing an inspection report of a industrial setting of valve manufacturing. Please describe the image with details.", new_gen=True, save_gen=False))
+prompt = """You are analyzing an inspection report of a industrial setting of valve manufacturing. 
+Your job is to analyze images in this report. If the image shows any captions or text, incorporate that into your description.
+If the image appears shows any machinery, equipment, or tools, attempt to name the machinery.
+If the image shows any sensor readings, write down the readings and the sensor type."""
+print(v.describe_images(imgs,prompt=prompt, new_gen=True, save_gen=True, save_path="data/detailed_descriptions.txt"))

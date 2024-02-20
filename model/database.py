@@ -36,7 +36,7 @@ class Database():
 
     def __init__(self, api_key=openai_key, descriptions="data/descriptions/", description_paths="data/descriptions_paths.txt"):
         
-        embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+        embeddings = OpenAIEmbeddings(api_key=api_key)
         
         docs = []
         path_dict = {}
@@ -101,8 +101,9 @@ class Database():
         return image_paths
 
 d = Database()
+# d = Database(descriptions="data/detailed_descriptions.txt")
 # print(d.search("multimeter", 1))
-image_path = d.search_image("mulimiter 0.09", 1)
+image_path = d.search_image("Show me a multimeter displaying 0.03", 5)
 print(image_path)
 if (len(image_path) > 0):
     for i in range(len(image_path)):
