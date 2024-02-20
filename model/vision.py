@@ -23,7 +23,7 @@ class Vision():
             base64_image = base64.b64encode(image).decode("utf-8")
         return base64_image
     
-    def describe_images(self, image_paths, prompt="What is in this image?",new_gen=False, save_gen=True, save_path="data/descriptions.txt", test=False):
+    def describe_images(self, image_paths, prompt="What is in this image?",new_gen=False, save_gen=True, save_path="data/descriptions.txt", save_image_paths="data/descriptions_paths.txt",test=False):
         
         if (os.path.exists("data/descriptions.txt") and not new_gen and test):
             # Use pre-generated descriptions
@@ -94,21 +94,39 @@ class Vision():
             
         # Save descriptions to a file
         if (save_gen):
-            with open(save_path, "w") as f:
-                for description in descriptions:
-                    f.write(description + "\n")
-            with open(save_path[:-4]+"_paths.txt", "w") as f:
-                for image_path in image_paths:
-                    f.write(image_path + "\n")
+            if (type(save_path) == list):
+                for i, path in enumerate(save_path):
+                    with open(path, "w") as f:
+                        f.write(descriptions[i])
+                for i, path in enumerate(save_image_paths):
+                    with open(path, "w") as f:
+                        f.write(image_paths[i])
+            else:
+                with open(save_path, "w") as f:
+                    for description in descriptions:
+                        f.write(description + "\n")
+                with open(save_path[:-4]+"_paths.txt", "w") as f:
+                    for image_path in image_paths:
+                        f.write(image_path + "\n")
 
         return descriptions_dict
 
 v = Vision()
-imgs = ["data/doc_images/"+img for img in os.listdir("data/doc_images/")]
+imgs = ["data/doc_images/INSPECTION_REPORT.pdf/"+img for img in os.listdir("data/doc_images/INSPECTION_REPORT.pdf/")]
+
+
+save_paths = []
+save_image_paths = []
+
+for img in imgs:
+    save_paths.append("data/descriptions/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+".txt")
+    save_image_paths.append("data/descriptions/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+"_paths.txt")
+
+
 # imgs.sort()
 # print(imgs)
 prompt = """You are analyzing an inspection report of a industrial setting of valve manufacturing. 
 Your job is to analyze images in this report. If the image shows any captions or text, incorporate that into your description.
 If the image appears shows any machinery, equipment, or tools, attempt to name the machinery.
 If the image shows any sensor readings, write down the readings and the sensor type."""
-print(v.describe_images(imgs,prompt=prompt, new_gen=True, save_gen=True, save_path="data/detailed_descriptions.txt"))
+print(v.describe_images(imgs,prompt=prompt, new_gen=True, save_gen=True, save_path=save_paths, save_image_paths=save_image_paths))

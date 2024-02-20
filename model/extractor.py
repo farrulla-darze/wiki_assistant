@@ -44,11 +44,12 @@ class Extractor:
                 images = page.images
                 page_height = page.height
                 for im, image in enumerate(images):
+                    print("saving image ", im, "from page ", i)
                     image_bbox = (image['x0'], page_height - image['y1'], image['x1'], page_height - image['y0'])
                     cropped_page = page.crop(image_bbox)
                     img_obj = cropped_page.to_image(resolution=1200)
                     # img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
-                    img_obj.save(f"data/doc_images/page_{i}image_{im}.png",format="png")
+                    img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
         else:
             print("Creating directory")
             os.mkdir("data/doc_images/"+self.path+"/")
@@ -56,7 +57,9 @@ class Extractor:
                 images = page.images
                 page_height = page.height
                 for im, image in enumerate(images):
+                    print("saving image ", im, "from page ", i)
                     image_bbox = (image['x0'], page_height - image['y1'], image['x1'], page_height - image['y0'])
                     cropped_page = page.crop(image_bbox)
                     img_obj = cropped_page.to_image(resolution=1200)
                     img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
+

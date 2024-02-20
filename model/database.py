@@ -1,5 +1,4 @@
 from langchain_core.documents import Document
-from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Qdrant
 import os
@@ -99,7 +98,7 @@ class Database():
             # image_paths.append(self.source_path.get(document.metadata["source"]))
         return image_paths
 
-d = Database()
+d = Database(descriptions="data/descriptions/INSPECTION_REPORT.pdf/")
 # d = Database(descriptions="data/detailed_descriptions.txt")
 # print(d.search("multimeter", 1))
 image_path = d.search_image("Show me a multimeter displaying 0.03", 5)
