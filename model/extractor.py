@@ -38,29 +38,25 @@ class Extractor:
         return images
     
     def save_images(self):
-        # if os.path.exists("data/doc_images/"+self.path):
-        for i,page in enumerate(self.document.pages):
-            images = page.images
-            page_height = page.height
-            for im, image in enumerate(images):
-                image_bbox = (image['x0'], page_height - image['y1'], image['x1'], page_height - image['y0'])
-                cropped_page = page.crop(image_bbox)
-                img_obj = cropped_page.to_image(resolution=1200)
-                # img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
-                img_obj.save(f"data/doc_images/page_{i}image_{im}.png",format="png")
-
-        # else:
-        #     os.mkdir("data/doc_images/"+self.path)
-        #     for i,page in enumerate(self.document.pages):
-        #         images = page.images
-        #         page_height = page.height
-        #         for im, image in enumerate(images):
-        #             image_bbox = (image['x0'], page_height - image['y1'], image['x1'], page_height - image['y0'])
-        #             cropped_page = page.crop(image_bbox)
-        #             img_obj = cropped_page.to_image(resolution=1200)
-        #             img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
-
-e = Extractor("INSPECTION_REPORT.pdf")
-# print(e.extract_images())
-# plt.imshow(e.extract_images()[0])
-e.save_images()
+        if os.path.exists("data/doc_images/"+self.path+"/"):
+            print("Directory already exists")
+            for i,page in enumerate(self.document.pages):
+                images = page.images
+                page_height = page.height
+                for im, image in enumerate(images):
+                    image_bbox = (image['x0'], page_height - image['y1'], image['x1'], page_height - image['y0'])
+                    cropped_page = page.crop(image_bbox)
+                    img_obj = cropped_page.to_image(resolution=1200)
+                    # img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
+                    img_obj.save(f"data/doc_images/page_{i}image_{im}.png",format="png")
+        else:
+            print("Creating directory")
+            os.mkdir("data/doc_images/"+self.path+"/")
+            for i,page in enumerate(self.document.pages):
+                images = page.images
+                page_height = page.height
+                for im, image in enumerate(images):
+                    image_bbox = (image['x0'], page_height - image['y1'], image['x1'], page_height - image['y0'])
+                    cropped_page = page.crop(image_bbox)
+                    img_obj = cropped_page.to_image(resolution=1200)
+                    img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
