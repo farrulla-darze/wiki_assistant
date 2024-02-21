@@ -32,7 +32,7 @@ def sort_nicely(l):
 
 class Database():
 
-    def __init__(self, api_key=openai_key, descriptions="data/descriptions/", description_paths="data/descriptions_paths.txt"):
+    def __init__(self, api_key=openai_key, descriptions="data/descriptions/", description_paths="data/descriptions/paths/"):
         
         embeddings = OpenAIEmbeddings(api_key=api_key)
         
@@ -40,12 +40,8 @@ class Database():
         path_dict = {}
 
 
-        image_paths = []
-        with open(description_paths, "r") as f:
-            image_paths = f.readlines()
-        
-        image_paths = [image_path.strip() for image_path in image_paths]
-        image_paths.sort()
+        image_path_files = os.listdir(description_paths)
+        image_path_files = sort_nicely(image_path_files)
 
         description_text_files = os.listdir(descriptions)
         description_text_files = sort_nicely(description_text_files)
@@ -53,16 +49,21 @@ class Database():
         i = 0
         total_files = len(description_text_files)
 
-        for file in description_text_files:
+        for i in range(len(description_text_files)):
+            file = description_text_files[i]
+            path = image_path_files[i]
             if (i == total_files):
                 break
             else: 
                 with open(descriptions + file, "r") as f:
                     content = f.read()
-                    docs.append(Document(page_content=content, metadata={"image_path": image_paths[i], "source": file}))
-                    path_dict.update({content: image_paths[i]})
-            i+=1
-
+                with open(description_paths + path, "r") as f:
+                    path = f.read()
+                # print(path)
+                docs.append(Document(page_content=content, metadata={"image_path": path, "source": file}))
+                print(path)
+                path_dict.update({content: path})
+            
 
         self.embeddings = embeddings
         self.source_path = path_dict
@@ -92,17 +93,18 @@ class Database():
         # Look for the image path in the document
         image_paths = []
         for document in documents:
-            print(document.page_content)
+            print(document.metadata["image_path"])
             if document.metadata["image_path"] not in image_paths:
                 image_paths.append(document.metadata["image_path"])
             # image_paths.append(self.source_path.get(document.metadata["source"]))
         return image_paths
 
-d = Database(descriptions="data/descriptions/INSPECTION_REPORT.pdf/")
-# d = Database(descriptions="data/detailed_descriptions.txt")
-# print(d.search("multimeter", 1))
+descritpion = "data/descriptions/INSPECTION_REPORT.pdf/"
+description_paths = "data/descriptions/paths/INSPECTION_REPORT.pdf/"
+
+d = Database(descriptions="data/descriptions/INSPECTION_REPORT.pdf/", description_paths="data/descriptions/paths/INSPECTION_REPORT.pdf/")
 image_path = d.search_image("Show me a multimeter displaying 0.03", 5)
-print(image_path)
+# print(image_path)
 if (len(image_path) > 0):
     for i in range(len(image_path)):
         plt.imshow(plt.imread(image_path[i]))

@@ -99,8 +99,11 @@ class Vision():
                     with open(path, "w") as f:
                         f.write(descriptions[i])
                 for i, path in enumerate(save_image_paths):
+                    # create file if non existent
                     with open(path, "w") as f:
                         f.write(image_paths[i])
+                    # with open(path, "w") as f:
+                    #     f.write(image_paths[i])
             else:
                 with open(save_path, "w") as f:
                     for description in descriptions:
@@ -120,7 +123,7 @@ save_image_paths = []
 
 for img in imgs:
     save_paths.append("data/descriptions/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+".txt")
-    save_image_paths.append("data/descriptions/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+"_paths.txt")
+    save_image_paths.append("data/descriptions/paths/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+"_path.txt")
 
 
 # imgs.sort()
