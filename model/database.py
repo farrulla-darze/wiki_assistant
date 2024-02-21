@@ -98,16 +98,3 @@ class Database():
                 image_paths.append(document.metadata["image_path"])
             # image_paths.append(self.source_path.get(document.metadata["source"]))
         return image_paths
-
-descritpion = "data/descriptions/INSPECTION_REPORT.pdf/"
-description_paths = "data/descriptions/paths/INSPECTION_REPORT.pdf/"
-
-d = Database(descriptions="data/descriptions/INSPECTION_REPORT.pdf/", description_paths="data/descriptions/paths/INSPECTION_REPORT.pdf/")
-image_path = d.search_image("Show me a multimeter displaying 0.03", 5)
-# print(image_path)
-if (len(image_path) > 0):
-    for i in range(len(image_path)):
-        plt.imshow(plt.imread(image_path[i]))
-        plt.show()
-else:
-    print("No image found")

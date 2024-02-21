@@ -10,11 +10,13 @@ class Model:
 
     def __init__(self, path):
         self.extractor = Extractor(path)
-        self.database = Database(descriptions="data/descriptions.txt", description_paths="data/description_paths.txt")
+        description = "data/descriptions/INSPECTION_REPORT.pdf/"
+        description_paths = "data/descriptions/paths/INSPECTION_REPORT.pdf/"
+        self.database = Database(descriptions=description, description_paths=description_paths)
         self.vision = Vision()
     
     @classmethod
-    def instance(cls,path="data/"):
+    def instance(cls,path="INSPECTION_REPORT.pdf"):
         if cls._instance is None:
             cls._instance = cls(path)
         return cls._instance

@@ -63,3 +63,4 @@ class Extractor:
                     img_obj = cropped_page.to_image(resolution=1200)
                     img_obj.save(f"data/doc_images/{self.path}/page_{i}image_{im}.png",format="png")
 
+e = Extractor("INSPECTION_REPORT.pdf")

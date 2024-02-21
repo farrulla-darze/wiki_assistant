@@ -114,22 +114,22 @@ class Vision():
 
         return descriptions_dict
 
-v = Vision()
-imgs = ["data/doc_images/INSPECTION_REPORT.pdf/"+img for img in os.listdir("data/doc_images/INSPECTION_REPORT.pdf/")]
+# v = Vision()
+# imgs = ["data/doc_images/INSPECTION_REPORT.pdf/"+img for img in os.listdir("data/doc_images/INSPECTION_REPORT.pdf/")]
 
 
-save_paths = []
-save_image_paths = []
+# save_paths = []
+# save_image_paths = []
 
-for img in imgs:
-    save_paths.append("data/descriptions/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+".txt")
-    save_image_paths.append("data/descriptions/paths/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+"_path.txt")
+# for img in imgs:
+#     save_paths.append("data/descriptions/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+".txt")
+#     save_image_paths.append("data/descriptions/paths/INSPECTION_REPORT.pdf/"+img.split("/")[-1][:-4]+"_path.txt")
 
 
-# imgs.sort()
-# print(imgs)
-prompt = """You are analyzing an inspection report of a industrial setting of valve manufacturing. 
-Your job is to analyze images in this report. If the image shows any captions or text, incorporate that into your description.
-If the image appears shows any machinery, equipment, or tools, attempt to name the machinery.
-If the image shows any sensor readings, write down the readings and the sensor type."""
-print(v.describe_images(imgs,prompt=prompt, new_gen=True, save_gen=True, save_path=save_paths, save_image_paths=save_image_paths))
+# # imgs.sort()
+# # print(imgs)
+# prompt = """You are analyzing an inspection report of a industrial setting of valve manufacturing. 
+# Your job is to analyze images in this report. If the image shows any captions or text, incorporate that into your description.
+# If the image appears shows any machinery, equipment, or tools, attempt to name the machinery.
+# If the image shows any sensor readings, write down the readings and the sensor type."""
+# print(v.describe_images(imgs,prompt=prompt, new_gen=True, save_gen=True, save_path=save_paths, save_image_paths=save_image_paths))
