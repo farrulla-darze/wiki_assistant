@@ -34,7 +34,7 @@ class Database():
 
     def __init__(self, api_key=openai_key, descriptions="data/descriptions/", description_paths="data/descriptions/paths/"):
         
-        embeddings = OpenAIEmbeddings(api_key=api_key)
+        embeddings = OpenAIEmbeddings(openai_api_key=api_key)
         
         docs = []
         path_dict = {}
