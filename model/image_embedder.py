@@ -33,10 +33,11 @@ img_emb = img_emb.T / np.linalg.norm(img_emb, axis=1)
 # transpose back to (21, 512)
 img_emb = img_emb.T
 
-documents = []
+print(img_emb)
+# documents = []
 
-for i in range(len(img_emb)):
-    documents.append(Document(page_content=images, metadata={"image_path": data[i]}))
+# for i in range(len(img_emb)):
+#     documents.append(Document(page_content=images, metadata={"image_path": data[i]}))
 
 
 # vec_db = Qdrant.from_documents(
@@ -49,3 +50,5 @@ for i in range(len(img_emb)):
 client = QdrantClient()
 collection_name = "img_emb_collection"
 qdrant = Qdrant(client, collection_name, embeddings=img_emb)
+
+# qdrant.insert_documents(data, img_emb)
