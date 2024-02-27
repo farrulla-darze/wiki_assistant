@@ -59,9 +59,7 @@ class Database():
                     content = f.read()
                 with open(description_paths + path, "r") as f:
                     path = f.read()
-                # print(path)
                 docs.append(Document(page_content=content, metadata={"image_path": path, "source": file}))
-                print(path)
                 path_dict.update({content: path})
             
 
@@ -84,17 +82,13 @@ class Database():
     
     def search_image(self, query, k=1):
         found_docs = self.vector_store.similarity_search_with_score(query)
-        search_ind = min(k, len(found_docs))
-        
+        search_ind = min(k, len(found_docs))        
         found_docs = found_docs[0:search_ind]
         documents = [found_doc[0] for found_doc in found_docs]
 
-        # image_paths = [document.metadata["image_path"] for document in documents]
         # Look for the image path in the document
         image_paths = []
         for document in documents:
-            print(document.metadata["image_path"])
             if document.metadata["image_path"] not in image_paths:
                 image_paths.append(document.metadata["image_path"])
-            # image_paths.append(self.source_path.get(document.metadata["source"]))
         return image_paths
