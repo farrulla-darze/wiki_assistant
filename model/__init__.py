@@ -8,8 +8,11 @@ class Model:
 
     _instance = None
 
-    def __init__(self, path):
+    def __init__(self, path, save_images=False):
+        # TODO: Pass correct path to Extractor
         self.extractor = Extractor(path)
+        if save_images:
+            self.extractor.save_images()
         description = "data/descriptions/INSPECTION_REPORT.pdf/"
         description_paths = "data/descriptions/paths/INSPECTION_REPORT.pdf/"
         self.database = Database(descriptions=description, description_paths=description_paths)

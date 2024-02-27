@@ -1,4 +1,4 @@
-The image appears to be taken from an industrial setting, showing a person measuring electrical parameters using a digital multimeter – a standard tool for diagnosing electrical properties such as voltage, current, and resistance. The multimeter display reads “0.00”, which might indicate there is no voltage, current, or whatever parameter is being measured at the measurement points.
+The image appears to be taken from an industrial setting, showing a person measuring electrical parameters using a digital multimeter, a standard tool for diagnosing electrical properties such as voltage, current, and resistance. The multimeter display reads (0.00), which might indicate there is no voltage, current, or whatever parameter is being measured at the measurement points.
 
 There is also a large piece of machinery in the background, possibly a part of a valve manufacturing setup or related equipment. Unfortunately, the image does not provide enough details to precisely identify the machine.
 
@@ -9,4 +9,4 @@ In the image, there are captions indicating:
 - DEPTH 500, which might signify a measurement depth, possibly related to the inspection process, but without context, it's not clear what this pertains to
 - The coordinates X 123456 and Y 234567 could be referring to positional data, potentially related to the location of the valve or valve part within the factory configuration or the position in the inspection testing process.
 
-The image is blurry and lacks clarity, making it difficult to provide a more detailed analysis of the environment or the specific models of the machinery or tools in use.
+The image is blurry and lacks clarity, making it difficult to provide a m`ore detailed analysis of the environment or the specific models of the machinery or tools in use.

@@ -1,4 +1,4 @@
-This image appears to show a close-up of a multimeter, a tool used for measuring electrical properties such as voltage, current, and resistance. The multimeter's display shows a reading of "00.3," but the units and measurement type are not visible—it might indicate 0.3 ohms, volts, or amps, depending on the setting.
+This image appears to show a close-up of a multimeter, a tool used for measuring electrical properties such as voltage, current, and resistance. The multimeter's display shows a reading of "00.3," but the units and measurement type are not visible, it might indicate 0.3 ohms, volts, or amps, depending on the setting.
 
 Above the image, there is coded text that likely refers to specific information relevant to the inspection:
 - DATA 02012011 potentially indicates a data set or record number, followed possibly by a date in a DDMMYYYY format: 2nd January 2011.

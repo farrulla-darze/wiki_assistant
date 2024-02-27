@@ -32,7 +32,7 @@ def sort_nicely(l):
 
 class Database():
 
-    def __init__(self, api_key=openai_key, descriptions="data/descriptions/", description_paths="data/descriptions/paths/"):
+    def __init__(self, api_key=openai_key, descriptions="data/descriptions/INSPECTION_REPORT.pdf/", description_paths="data/descriptions/paths/INSPECTION_REPORT.pdf/"):
         
         embeddings = OpenAIEmbeddings(api_key=api_key)
         
