@@ -8,6 +8,6 @@ What is the logo of the company?
 
 Image with chinese text
 
-depth 100
+Show me an image with depth 100
 
-depth 600
+What equipments are at a depth of 500
