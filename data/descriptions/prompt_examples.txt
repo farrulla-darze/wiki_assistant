@@ -9,5 +9,7 @@ What is the logo of the company?
 Image with chinese text
 
 Show me an image with depth 100
+Mostre imagem com profundidade de 100
 
 What equipments are at a depth of 500
+Quais equipamentos estao a uma profundidade de 500
