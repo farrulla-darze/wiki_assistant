@@ -7,7 +7,7 @@ class View(ttk.Frame):
 
     def __init__(self, parent):
         super().__init__(parent)
-        self.textbox = tk.Entry(self)
+        self.textbox = tk.Entry(self, width=70)
         self.textbox.pack()
 
         self.label = tk.Label(self, text="Prompt")

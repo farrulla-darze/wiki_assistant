@@ -10,7 +10,7 @@ class App(Tk):
         super().__init__()
 
         self.title('Tkinter MVC Demo')
-        self.geometry('800x600')
+        self.geometry('600x400')
         
 
         # create a model

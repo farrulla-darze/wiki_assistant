@@ -7,9 +7,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 dotenv_path = Path('.env')
-load_dotenv(dotenv_path=dotenv_path)
+load_dotenv(dotenv_path=dotenv_path, override=True)
 openai_key = os.getenv('OPENAI_KEY')
-
 
 class Vision():
 
